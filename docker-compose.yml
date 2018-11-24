@@ -1,0 +1,26 @@
+version: '3'
+services:
+  watch-ts:
+    image: watch-ts:latest
+    command: bash /code/scripts/run-dev-watch-ts.sh
+    environment:
+      - NODE_ENV=development
+    build:
+      context: .
+      dockerfile: ./docker/dev/Dockerfile
+    volumes:
+      - .:/code
+  watch:
+    image: watch:latest
+    command: bash /code/scripts/run-dev-watch.sh
+    environment:
+      - NODE_ENV=development
+    ports:
+      - "${PORT}:${PORT}"
+    build:
+      context: .
+      dockerfile: ./docker/dev/Dockerfile
+    volumes:
+      - .:/code
+    env_file:
+      - .env
