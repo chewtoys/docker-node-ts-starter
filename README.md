@@ -1,5 +1,5 @@
 # Node.js + TypeScript + Docker starter project
-Minimal configuration for docker and nodejs project
+Minimal configuration for docker, TypeScript and nodejs project
 
 Run dev:
 ```bash
